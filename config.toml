@@ -1,5 +1,5 @@
 # Page settings
-baseurl = "localhost:1313"
+baseurl = "www.dataforestblog.com"
 title = "Elate theme"
 languageCode = "en-us"
 theme = "hugo-elate-theme"
@@ -11,7 +11,7 @@ theme = "hugo-elate-theme"
   # Meta
   author = ""
   description = ""
-  email = ""
+  email = "jmw.home@gmail.com"
   # Navigation
   [params.navigation]
     brand = "Elate"
@@ -262,15 +262,12 @@ theme = "hugo-elate-theme"
     
     # Available icons: http://simplelineicons.com/
     details = [
-        ["icon-home", "5555 Love Paradise 56 New Clity 5655, <br> Excel Tower United Kingdom"],
         ["icon-phone", "(123) 465-6789"],
         ["icon-envelope", "info@freehtml5.co"],
-        ["icon-globe", '<a href="http://freehtml5.co/" target="_blank">freehtml5.co</a>']
       ]
 
     name = "Name"
     email = "Email"
-    phone = "Phone"
     message = "Message"
     button = "Send message"
 
