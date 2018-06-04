@@ -1,5 +1,5 @@
 # Page settings
-baseurl = "www.dataforestblog.com"
+baseurl = "https://www.dataforestblog.com"
 title = "Elate theme"
 languageCode = "en-us"
 theme = "hugo-elate-theme"
