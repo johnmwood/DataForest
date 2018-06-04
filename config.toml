@@ -1,4 +1,4 @@
-baseurl = "https://www.dataforestblog.com"
+baseurl = "https://www.dataforestblog.com/"
 title = "Data Forest"
 theme = "ghostwriter"
 languageCode = "en-us"
