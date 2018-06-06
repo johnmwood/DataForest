@@ -1,55 +1,26 @@
-baseurl = "/"
-title = "Data Forest"
-theme = "ghostwriter"
-languageCode = "en-us"
-copyright = "John Wood"
+theme = "hugo-theme-bleak"
 
-[Privacy]
+[params]
+  # Warning Keys are case sensitives
+  Subtitle = "Your subtitle !"
+  description = "Everything is awesome !"
+  cover = "/images/cover.jpg"
 
-[Privacy.disqus]
-    disable = true
+  # Google analytics
+  googleAnalyticsUserID = "UA-xxxxxxxx-x"
+  domainVerification = "xxxxxxxxxxxxxxxxxxxxx"
+  disqus = "xxxxxxxxx"
 
-[Author]
-    name = "John Wood"
-    profile = "https://google.com/+XXX"
-
-[Taxonomies]
-    tag = "tags"
-
-[Params]
-    intro = true
-    headline = "My headline"
-    description = "My description"
-    github = "https://github.com/XXX"
-    linkedin = "https://linkedin.com/in/XXX/"
-    twitter = "https://twitter.com/XXX"
-    email = "jmw.home@gmail.com"
-    shareTwitter = true
-    shareFacebook = true
-    shareLinkedIn = true
-    dateFormat = "Mon, Jan 2, 2006"
-    highlightJsUrl = ""
-    highlightJsLocalUrl = ""
-
-[Permalinks]
-    post = "/:year/:month/:day/:filename/"
-
-[[menu.main]]
-    name = "Blog"
-    url = "/"
-    weight = 1
-
-[[menu.main]]
-    name = "Projects"
-    url = "/project/"
-    weight = 2
-
-[[menu.main]]
-    name = "Contact"
-    url = "/page/contact/"
-    weight = 3
-
-[[menu.main]]
-    name = "About"
-    url = "/page/about/"
-    weight = 4
+  [params.author]
+    firstName = "FirstName"
+    lastName = "LastName"
+    gender = "(fe)?male"
+    userName = "username"
+    image = "//www.gravatar.com/avatar/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.png"
+    website = "http://www.foo.com"
+    twitter = "xxxxxxx"
+    github = "xxxxxxx"
+    facebook = "xxxxxxxxx"
+    linkedin = "xxxxxxxxx"
+    gplus = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    gravatarHash = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"

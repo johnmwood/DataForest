@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="">
 
@@ -6,15 +7,30 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <meta property="og:title" content=" R &middot;  " />
+    <meta property="og:title" content=" Hello R Markdown &middot;  " />
     <meta property="og:site_name" content="" />
-    <meta property="og:url" content="/categories/r/" />
+    <meta property="og:url" content="/post/2015-07-23-r-rmarkdown/" />
 
     
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content="2015-07-23T21:13:14-05:00" />
+    <meta property="og:article:tag" content="R Markdown" />
+    <meta property="og:article:tag" content="plot" />
+    <meta property="og:article:tag" content="regression" />
     
 
-    <title> R &middot;  </title>
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:creator" content="@" />
+    <meta name="twitter:title" content="Hello R Markdown" />
+    
+    <meta name="twitter:description" content="R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu." />
+    <meta name="twitter:url" content="/post/2015-07-23-r-rmarkdown/" />
+    
+
+    <title> Hello R Markdown &middot;  </title>
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="preload" href="//js/main.js" as="script" />
@@ -43,10 +59,55 @@
     
 
     
-    <link href="/categories/r/index.xml" rel="alternate" type="application/rss+xml" title="R &middot; " />
-    
-    <link rel="canonical" href="/categories/r/" />
+    <link rel="canonical" href="/post/2015-07-23-r-rmarkdown/" />
 
+    
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "/post/2015-07-23-r-rmarkdown/"
+        },
+        "headline": "Hello R Markdown",
+        "description": "",
+        "author": {
+            "@type": "Person",
+            "name": "FirstName LastName",
+            "url": "http://profiles.google.com/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx?rel=author",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://www.gravatar.com/avatar/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.png",
+              "height": 80,
+              "width": 80
+            }
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "/",
+          "name": "",
+          "url": "/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.gravatar.com/avatar/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.png",
+            "height": 80,
+            "width": 80
+          }
+        },
+        
+        "image": {
+          "@type": "ImageObject",
+          "url": "//www.gravatar.com/avatar/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.png",
+          "height": 80,
+          "width": 80
+        },
+        "datePublished": "2015-07-23",
+        "dateModified": "2015-07-23",
+        "wordCount": 159,
+        "keywords": ["R Markdown","plot","regression"] 
+    }
+    </script>
     
 
     
@@ -54,9 +115,9 @@
         
         
         var disqus_shortname = 'xxxxxxxxx';
-        var disqus_identifier = '\/categories\/r\/';
-        var disqus_title = 'R';
-        var disqus_url = '\/categories\/r\/';
+        var disqus_identifier = '\/post\/2015-07-23-r-rmarkdown\/';
+        var disqus_title = 'Hello R Markdown';
+        var disqus_url = '\/post\/2015-07-23-r-rmarkdown\/';
         
     </script>
     
@@ -98,66 +159,127 @@ html{font-family:sans-serif;line-height:1.15;-ms-text-size-adjust:100%;-webkit-t
                 </form>
                 
                 
+                
+                
             </div>
         </nav>
 
 
-<header id="header" class="header has-cover">
-	<div class="inner">
-		<a class="header-title" href="/">
-			<h1 class="header-name">R</h1>
-		</a>
-	</div>
-	
-	<div class="header-cover" style="background-image: url(///images/cover.jpg)"></div>
-	
-</header>
+<main class="content" role="main">
+    <article class="post">
+        <div class="inner">
 
-	<div id="post-index" class="container">
+            <div id="push">
 
-		<main class="content" role="main">
+                <header class="post-header">
+                
+                    <span class="post-meta">
+                        <span class="post-date">23 Jul 2015</span> <span class="reading-time">| <span class="estimated-reading-time">1 min.</span> (<span class="word-count">159</span> words)</span></span>
+                    </span>
+                <div class="clear"></div>
+                
+                <h1 class="post-title">Hello R Markdown</h1>
+              </header>
 
-			<div class="post-list">
-				<div id="push">
+              <section class="post-content">
+                
+                  <div id="r-markdown" class="section level1">
+<h1>R Markdown</h1>
+<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>You can embed an R code chunk like this:</p>
+<pre class="r"><code>summary(cars)
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+fit &lt;- lm(dist ~ speed, data = cars)
+fit
+## 
+## Call:
+## lm(formula = dist ~ speed, data = cars)
+## 
+## Coefficients:
+## (Intercept)        speed  
+##     -17.579        3.932</code></pre>
+</div>
+<div id="including-plots" class="section level1">
+<h1>Including Plots</h1>
+<p>You can also embed plots. See Figure <a href="#fig:pie">1</a> for example:</p>
+<pre class="r"><code>par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c(&#39;Sky&#39;, &#39;Sunny side of pyramid&#39;, &#39;Shady side of pyramid&#39;),
+  col = c(&#39;#0292D8&#39;, &#39;#F7EA39&#39;, &#39;#C4B632&#39;),
+  init.angle = -50, border = NA
+)</code></pre>
+<div class="figure"><span id="fig:pie"></span>
+<img src="/post/2015-07-23-r-rmarkdown_files/figure-html/pie-1.png" alt="A fancy pie chart." width="672" />
+<p class="caption">
+Figure 1: A fancy pie chart.
+</p>
+</div>
+</div>
 
-			
+              </section>
 
-			
-			  
-<article class="post post">
+              <footer class="post-footer">
+                  <div class="post-tags">
+            
+            
+                <a href="/tags/r-markdown.html">R Markdown</a>
+            
+                <a href="/tags/plot.html">plot</a>
+            
+                <a href="/tags/regression.html">regression</a>
+            
+            
+                  </div>
+                
+              </footer>
 
-	<div class="inner">
-		<a class="post-link" href="/post/2015-07-23-r-rmarkdown/"></a>
-		
-		<span class="post-meta">
-			<span class="post-date">23 Jul 2015</span>
-		</span>
-		<h2 class="post-title"><a href="/post/2015-07-23-r-rmarkdown/">Hello R Markdown</a></h2>
-		<p class="post-excerpt">R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</p>
-		<span class="post-more"><a href="/post/2015-07-23-r-rmarkdown/">Read more <i class="fa fa-angle-right"></i></a></span>
-	</div>
-</article>
+            
+                <aside class="post-comments">
+    
+    
+    <div id="disqus_thread"></div>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+    
+</aside>
 
-			
+            
+            </div>
 
-				</div>
-			</div>
+            <nav class="post-nav">
+                
+                    <a class="post-nav-item post-nav-next" href="/post/2016-12-30-hello-markdown/">
+                        <section class="post-nav-teaser">
+                            <span class="post-nav-icon"><i class="fa fa-chevron-left"></i></span>
+                            <span class="post-nav-info">
+                                <h4 class="post-nav-title">A Plain Markdown Post</h4>
+                            </span>
+                        </section>
+                    </a>
+                
+                
+                    <a class="post-nav-item post-nav-prev" href="/post/2015-01-01-lorem-ipsum/">
+                        <section class="post-nav-teaser">
+                            <span class="post-nav-icon"><i class="fa fa-chevron-right"></i></span>
+                            <span class="post-nav-info">
+                                <h4 class="post-nav-title">Lorem Ipsum</h4>
+                            </span>
+                        </section>
+                    </a>
+                
+                <div class="clear"></div>
+            </nav>
 
-			<nav id="pagination" class="pagination" role="pagination">
-	<div class="inner">
-	
-		<span class="pagination-info">Page 1 of 1</span>
-	
-		<div class="clear"></div>
-	</div>
-</nav>
-
-
-		</main>
-
-	</div>
+        </div>
+    </article>
+</main>
 
                 <div id="body-class" style="display: none;"></div>
                 <footer id="footer">
