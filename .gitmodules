@@ -1,3 +1,6 @@
 [submodule "themes/hugo-theme-bleak"]
     path = themes/hugo-theme-bleak
     url = https://github.com/jbub/hugo-theme-bleak
+[submodule "themes/ghostwriter"]
+    path = themes/ghostwriter
+    url = https://github.com/jbub/ghostwriter
