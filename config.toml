@@ -1,26 +1,113 @@
-theme = "hugo-theme-bleak"
+baseURL = "http://www.dataforestblog.com/"
+title = "Data Forest"
+# for smart copyright line, leave this blank and check [params.copyright]
+copyright = ""
 
-[params]
-  # Warning Keys are case sensitives
-  Subtitle = "Your subtitle !"
-  description = "Everything is awesome !"
-  cover = "/images/cover.jpg"
+theme = "minimo"
 
-  # Google analytics
-  googleAnalyticsUserID = "UA-xxxxxxxx-x"
-  domainVerification = "xxxxxxxxxxxxxxxxxxxxx"
-  disqus = "xxxxxxxxx"
+disqusShortname = ""
+googleAnalytics = ""
 
-  [params.author]
-    firstName = "FirstName"
-    lastName = "LastName"
-    gender = "(fe)?male"
-    userName = "username"
-    image = "//www.gravatar.com/avatar/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.png"
-    website = "http://www.foo.com"
-    twitter = "xxxxxxx"
-    github = "xxxxxxx"
-    facebook = "xxxxxxxxx"
-    linkedin = "xxxxxxxxx"
-    gplus = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-    gravatarHash = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+Paginate = 5
+preserveTaxonomyNames = true
+
+enableRobotsTXT = true # generate robots.txt
+
+# Syntax Highlighting ( https://gohugo.io/content-management/syntax-highlighting/ )
+pygmentsCodefences = true
+
+enableEmoji = true
+
+# Missing translations will default to this content language
+defaultContentLanguage = "en"
+
+[params.info]
+description = "A Data Science Blog"
+title404 = "Nothing's here!"
+
+[params.assets]
+favicon = "favicon.ico"
+customCSS = ["css/custom.css"]
+customJS = ["js/custom.js"]
+gopher = "" # used in 404 template ( Generator: https://gopherize.me )
+
+[params.copyright]
+prefix = ""
+holder = "John Wood"
+startYear = "2018"
+suffix = ""
+
+[params.settings]
+# date & time format: https://golang.org/pkg/time/
+dateFormat = "2006, Jan 02"
+listDateFormat = "2006, Jan 02"
+archiveDateFormat = "Jan 02"
+hideEntryNavigation = ["page"] # boolean / array of sections
+showReadingTime = true
+taxonomyCloudShuffle = true
+accentColor = "green"
+hideMainMenu = false
+
+[params.sidebar]
+enable = true
+
+[params.widgets]
+homepage = ["recent_posts"]
+sidebar = ["about","sidebar_menu","taxonomy_cloud"]
+footer = ["social_menu"]
+
+[params.opengraph.facebook]
+admins = [] # array of Facebook IDs
+appID = ""
+pageID = ""
+
+[params.opengraph.twitter]
+page = "" # Twitter page username
+
+[params.seo]
+# Title Separator: - – — · • * ⋆ | ~ « » < >
+titleSeparator = "•"
+
+[params.social]
+linkedin = "https://www.linkedin.com/in/johnmorganwood/"
+github = "https://github.com/johnmwood"
+email = "jmw.home@gmail.com"
+twitter = "https://twitter.com/john_mwood"
+
+[params.comments]
+enable = false
+
+[params.comments.staticman]
+enable = true
+apiEndpoint = "https://api.staticman.net/v2/entry"
+maxDepth = 2
+
+[params.comments.staticman.github]
+username = "MunifTanjim"
+repository = "minimo"
+branch = "master"
+
+[taxonomies]
+author = "authors"
+category = "categories"
+series = "series"
+tag = "tags"
+
+[permalinks]
+page = "/:slug/"
+
+[[menu.main]]
+name = "About"
+weight = -10
+# identifier = "repository"
+url = "https://dataforestblog.com/about/"
+
+[blackfriday]
+hrefTargetBlank = true
+
+[languages]
+# edit this block for your own language
+[languages.en]
+lang = "en"
+languageName = "English"
+weight = 1

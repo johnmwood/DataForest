@@ -1,3 +1,3 @@
-[submodule "themes/hugo-theme-bleak"]
-    path = themes/hugo-theme-bleak
-    url = https://github.com/Zenithar/hugo-theme-bleak
+[submodule "themes/hugo-theme-massively"]
+    path = themes/hugo-theme-massively
+    url = https://github.com/curttimson/hugo-theme-massively
