@@ -1,3 +1,6 @@
 [submodule "themes/hugo-theme-massively"]
     path = themes/hugo-theme-massively
     url = https://github.com/curttimson/hugo-theme-massively
+[submodule "themes/themes/minimo"]
+	path = themes/themes/minimo
+	url = https://github.com/MunifTanjim/minimo
