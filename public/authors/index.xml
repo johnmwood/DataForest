@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors on Data Forest</title>
-    <link>/authors/</link>
+    <link>http://www.dataforestblog.com/authors/</link>
     <description>Recent content in Authors on Data Forest</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	<atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.dataforestblog.com/authors/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
