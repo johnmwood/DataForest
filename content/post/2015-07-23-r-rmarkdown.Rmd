@@ -1,9 +1,0 @@
----
-title: "First Post"
-author: "John Wood"
-date: 2018-06-06
-categories: ["R"]
-tags: ["R Markdown", "plot", "regression"]
----
-
-

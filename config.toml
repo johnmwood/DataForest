@@ -100,7 +100,7 @@ page = "/:slug/"
 name = "About"
 weight = -10
 # identifier = "repository"
-url = "https://dataforestblog.com/about/"
+url = "/about/"
 
 [blackfriday]
 hrefTargetBlank = true
@@ -111,3 +111,5 @@ hrefTargetBlank = true
 lang = "en"
 languageName = "English"
 weight = 1
+
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]

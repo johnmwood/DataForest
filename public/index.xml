@@ -5,28 +5,19 @@
     <link>/</link>
     <description>Recent content on Data Forest</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 06 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 11 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>First Post</title>
-      <link>/post/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Wed, 06 Jun 2018 00:00:00 +0000</pubDate>
+      <title>Webscraping in Python - an Overview</title>
+      <link>/post/webscraping-in-python-an-overview/</link>
+      <pubDate>Thu, 11 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/2015-07-23-r-rmarkdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>A Plain Markdown Post</title>
-      <link>/post/2016-12-30-hello-markdown/</link>
-      <pubDate>Fri, 30 Dec 2016 21:49:57 -0700</pubDate>
-      
-      <guid>/post/2016-12-30-hello-markdown/</guid>
-      <description>This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
- You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Blackfriday, and an R Markdown document is compiled by rmarkdown and Pandoc.  There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown.</description>
+      <guid>/post/webscraping-in-python-an-overview/</guid>
+      <description>Webscraping in Python is not only incredibly satisfying to implement but also allows us to be creative in the way we want to approach any given problem. Just like
+Simple Static HTML Sites  Requests  JavaScript Generated Sites  Does an API exist?  </description>
     </item>
     
     <item>
@@ -35,16 +26,7 @@
       <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
       
       <guid>/about/</guid>
-      <description>This is a &amp;ldquo;hello world&amp;rdquo; example website for the blogdown package. The theme was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
-    </item>
-    
-    <item>
-      <title>Lorem Ipsum</title>
-      <link>/post/2015-01-01-lorem-ipsum/</link>
-      <pubDate>Thu, 01 Jan 2015 13:09:13 -0600</pubDate>
-      
-      <guid>/post/2015-01-01-lorem-ipsum/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
+      <description>This is me</description>
     </item>
     
   </channel>
