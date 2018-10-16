@@ -18,7 +18,7 @@
       
       <guid>/post/webscraping-in-python-an-overview/</guid>
       <description>Webscraping in Python is not only incredibly satisfying to implement but also allows us to be creative in the way we want to approach any given site. Just as jazz improv requires understanding of scales and chord structure to be able to properly add to the progression, scraping data off the internet requires knowledge of the available options to be able to effectively scrap data.
-Simple Static HTML Sites def something(): pass class Something: def __init__(self): self.</description>
+Simple Static HTML Sites  Requests  JavaScript Generated Sites  Does an API exist?</description>
     </item>
     
     <item>

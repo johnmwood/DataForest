@@ -1,0 +1,36 @@
+---
+date: "Oct 15th, 2018"
+title: "About me"
+---
+```{r include = FALSE}
+library(knitr)
+library(magick)
+"print.magick-image" <- function(x, ...){
+  ext <- ifelse(length(x), tolower(image_info(x[1])$format), "gif")
+  tmp <- tempfile(fileext = paste0(".", ext))
+  image_write(x, path = tmp)
+  knitr::include_graphics(tmp)
+}
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Bringing real solutions to business problems drives me to succeed and continue to learn. I'm looking to find full-time work with problems which challenge my critical thinking, push me to learn every day, and bring true value to the organization. 
+
+```{r echo = FALSE, message = FALSE, fig.align = "left", out.width = "50%"}
+library(magick)
+library(magrittr) 
+
+profile_picture <- image_read("img/me.png") %>%
+  image_scale("400") %>%
+  image_scale("x400") %>%
+  image_border("#f4f4f4", "10x10") 
+
+image_write(profile_picture, path = "img/me2.jpg", format = "jpg")
+knitr::include_graphics("img/me2.jpg")
+```
+
+
+

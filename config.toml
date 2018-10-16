@@ -14,7 +14,7 @@ googleAnalytics = ""
   description = "A data science blog by John Wood"
   copyright = "&copy;2018 John Wood"
   sidebarAbout = [
-    "Dedicated data scientist with passion for learning and challenging myself"
+    "A data science blog by John Wood"
   ]
   # Contact page
      # Since this template is static, the contact form uses www.formspree.io as a
