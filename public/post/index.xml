@@ -2,22 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Data Forest</title>
-    <link>http://www.dataforestblog.com/post/</link>
+    <link>/post/</link>
     <description>Recent content in Posts on Data Forest</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
     <lastBuildDate>Thu, 11 Oct 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://www.dataforestblog.com/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Webscraping in Python - an Overview</title>
-      <link>http://www.dataforestblog.com/post/webscraping-in-python-an-overview/</link>
+      <link>/post/webscraping-in-python-an-overview/</link>
       <pubDate>Thu, 11 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://www.dataforestblog.com/post/webscraping-in-python-an-overview/</guid>
-      <description>Webscraping in Python is not only incredibly satisfying to implement but also allows us to be creative in the way we want to approach any given problem. Just as jazz improv requires understanding of scales and chord structure to be able to properly add to the progression, scraping data off the internet requires knowledge of the available options to be able to effectively gather the data.
-Simple Static HTML Sites def something(): pass  Requests  JavaScript Generated Sites  Does an API exist?</description>
+      <guid>/post/webscraping-in-python-an-overview/</guid>
+      <description>Webscraping in Python is not only incredibly satisfying to implement but also allows us to be creative in the way we want to approach any given site. Just as jazz improv requires understanding of scales and chord structure to be able to properly add to the progression, scraping data off the internet requires knowledge of the available options to be able to effectively scrap data.
+Simple Static HTML Sites def something(): pass class Something: def __init__(self): self.</description>
+    </item>
+    
+    <item>
+      <title>NLP</title>
+      <link>/post/nlp/</link>
+      <pubDate>Fri, 12 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/nlp/</guid>
+      <description></description>
     </item>
     
   </channel>

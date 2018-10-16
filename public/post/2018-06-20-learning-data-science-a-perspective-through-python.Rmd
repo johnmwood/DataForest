@@ -1,9 +1,0 @@
----
-title: Webscraping in Python - An Overview 
-author: John Wood
-date: '2018-06-20'
-slug: webscraping-in-pythin-an-overview
-categories: [Python, Webscraping]
-tags: [Python]
-authors: [John Wood]
----

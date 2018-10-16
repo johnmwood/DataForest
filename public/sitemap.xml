@@ -3,44 +3,44 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://www.dataforestblog.com/post/webscraping-in-python-an-overview/</loc>
+    <loc>/post/webscraping-in-python-an-overview/</loc>
     <lastmod>2018-10-11T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.dataforestblog.com/about/</loc>
-    <lastmod>2016-05-05T21:48:51-07:00</lastmod>
+    <loc>/post/nlp/</loc>
+    <lastmod>2018-10-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://www.dataforestblog.com/authors/</loc>
+    <loc>/contact/</loc>
+    <lastmod>2016-11-06T13:00:25+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/about/</loc>
+    <lastmod>2016-11-05T21:05:33+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.dataforestblog.com/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.dataforestblog.com/</loc>
+    <loc>/</loc>
     <lastmod>2018-10-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.dataforestblog.com/post/</loc>
+    <loc>/post/</loc>
     <lastmod>2018-10-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://www.dataforestblog.com/series/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.dataforestblog.com/tags/</loc>
+    <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   

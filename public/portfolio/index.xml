@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Portfolios on Data Forest</title>
+    <link>/portfolio/</link>
+    <description>Recent content in Portfolios on Data Forest</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 11 Oct 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Webscraping in Python - an Overview</title>
+      <link>/portfolio/webscraping-in-python-an-overview/</link>
+      <pubDate>Thu, 11 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/portfolio/webscraping-in-python-an-overview/</guid>
+      <description>Webscraping in Python is not only incredibly satisfying to implement but also allows us to be creative in the way we want to approach any given problem. Just as jazz improv requires understanding of scales and chord structure to be able to properly add to the progression, scraping data off the internet requires knowledge of the available options to be able to effectively gather the data.
+Simple Static HTML Sites def something(): pass  Requests  JavaScript Generated Sites  Does an API exist?</description>
+    </item>
+    
+  </channel>
+</rss>
