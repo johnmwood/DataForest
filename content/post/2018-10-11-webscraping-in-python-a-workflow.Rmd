@@ -1,0 +1,120 @@
+---
+title: Webscraping in Python - a Workflow 
+author: John Wood
+date: '2018-10-23'
+slug: webscraping-in-python-a-workflow
+type: "post" 
+image: "post/img/requests.png"
+showonlyimage: false
+weight: 2
+description: "Scraping data off the web only requires some knowledge of the available options in Python and a little creativity"
+categories: []
+tags: []
+authors: []
+---
+```{r setup, include=FALSE}
+library(reticulate)
+use_python("/anaconda3/bin/python")
+knitr::knit_engines$set(python = eng_python) 
+knitr::opts_chunk$set(
+  echo = TRUE, 
+  out.width = "200%",
+  fig.align = "center", 
+  collapse = TRUE, 
+  cache = TRUE
+)
+```
+
+### Scraping Stock Data  
+[Yahoo Finance](https://finance.yahoo.com/sector/technology) 
+
+### BeautifulSoup and Python 
+
+```{python eval=TRUE}
+from bs4 import BeautifulSoup
+import requests 
+  
+  
+url = "https://finance.yahoo.com/screener/predefined/technology?offset=100&count=25" 
+r = requests.get(url) 
+soup = BeautifulSoup(r.content, "html.parser")
+  
+print(soup.title)
+```
+
+### Find the Data Table 
+
+```{python eval=TRUE}
+table = soup.find_all("table")[1].find("tbody")
+```
+
+### Scrape Table 
+
+```{python eval=TRUE}
+def create_stock(row):
+    fields = ["symbol", "name", "price", "change", "change_percent",
+              "volume", "three_month_avg_vol", "market_cap", "PE_ratio"]
+    data = [x.text for x in row]
+
+    return {key: value for key, value in zip(fields, data)}
+      
+all_stocks = [] 
+for row in table: 
+    stock = create_stock(row)
+    all_stocks.append(stock)
+     
+print(len(all_stocks))
+print(all_stocks[0]) # verify data 
+```
+
+*** 
+### Putting it All Together 
+
+```{python eval=TRUE, collapse=FALSE}
+from bs4 import BeautifulSoup  
+import pandas as pd  
+import datetime  
+import requests  
+import re  
+  
+  
+def request_table(offset): 
+    url = f"https://finance.yahoo.com/sector/technology?offset={offset}&count=25"
+    r = requests.get(url)
+    soup = BeautifulSoup(r.content, "html.parser")
+
+    return soup.find_all("table")[1].find("tbody")
+  
+def create_stock(row):
+    fields = ["symbol", "name", "price", "change", "change_percent",
+              "volume", "three_month_avg_vol", "market_cap", "PE_ratio"]
+    data = [x.text for x in row]
+
+    return {key: value for key, value in zip(fields, data)}
+  
+def scrape_tables(): 
+    table_range = [0, 100, 200, 300, 400, 446]
+    all_stocks = [] 
+
+    for offset in table_range: 
+        table = request_table(offset) 
+
+        for row in table: 
+            stock = create_stock(row)
+            all_stocks.append(stock)
+
+    return all_stocks
+  
+  
+all_stocks = scrape_tables() 
+print(len(all_stocks)) # verify 446 companies 
+
+df = pd.DataFrame(all_stocks) 
+df["date"] = datetime.datetime.today().strftime('%Y-%m-%d')
+print(df[["symbol", "name", "price", "change_percent", "date"]].head())
+```
+
+*** 
+### Finishing Up 
+
+

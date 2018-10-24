@@ -1,0 +1,106 @@
+---
+title: Webscraping in Python - a Workflow 
+author: John Wood
+date: '2018-10-23'
+slug: webscraping-in-python-a-workflow
+type: "post" 
+image: "post/img/requests.png"
+showonlyimage: false
+weight: 2
+description: "Scraping data off the web only requires some knowledge of the available options in Python and a little creativity"
+categories: []
+tags: []
+authors: []
+---
+
+
+
+<div id="scraping-stock-data" class="section level3">
+<h3>Scraping Stock Data</h3>
+<p><a href="https://finance.yahoo.com/sector/technology">Yahoo Finance</a></p>
+</div>
+<div id="beautifulsoup-and-python" class="section level3">
+<h3>BeautifulSoup and Python</h3>
+<pre class="python"><code>from bs4 import BeautifulSoup
+import requests 
+  
+  
+url = &quot;https://finance.yahoo.com/screener/predefined/technology?offset=100&amp;count=25&quot; 
+r = requests.get(url) 
+soup = BeautifulSoup(r.content, &quot;html.parser&quot;)
+  
+print(soup.title)
+## &lt;title&gt;Stock Screener - Yahoo Finance&lt;/title&gt;</code></pre>
+</div>
+<div id="find-the-data-table" class="section level3">
+<h3>Find the Data Table</h3>
+<pre class="python"><code>table = soup.find_all(&quot;table&quot;)[1].find(&quot;tbody&quot;)</code></pre>
+</div>
+<div id="scrape-table" class="section level3">
+<h3>Scrape Table</h3>
+<pre class="python"><code>def create_stock(row):
+    fields = [&quot;symbol&quot;, &quot;name&quot;, &quot;price&quot;, &quot;change&quot;, &quot;change_percent&quot;,
+              &quot;volume&quot;, &quot;three_month_avg_vol&quot;, &quot;market_cap&quot;, &quot;PE_ratio&quot;]
+    data = [x.text for x in row]
+    return {key: value for key, value in zip(fields, data)}
+      
+all_stocks = [] 
+for row in table: 
+    stock = create_stock(row)
+    all_stocks.append(stock)
+     
+print(len(all_stocks))
+## 100
+print(all_stocks[0]) # verify data 
+## {&#39;symbol&#39;: &#39;STX&#39;, &#39;name&#39;: &#39;Seagate Technology plc&#39;, &#39;price&#39;: &#39;43.47&#39;, &#39;change&#39;: &#39;-0.13&#39;, &#39;change_percent&#39;: &#39;-0.30%&#39;, &#39;volume&#39;: &#39;5.956M&#39;, &#39;three_month_avg_vol&#39;: &#39;3.788M&#39;, &#39;market_cap&#39;: &#39;12.515B&#39;, &#39;PE_ratio&#39;: &#39;10.73&#39;}</code></pre>
+<hr />
+</div>
+<div id="putting-it-all-together" class="section level3">
+<h3>Putting it All Together</h3>
+<pre class="python"><code>from bs4 import BeautifulSoup  
+import pandas as pd  
+import datetime  
+import requests  
+import re  
+  
+  
+def request_table(offset): 
+    url = f&quot;https://finance.yahoo.com/sector/technology?offset={offset}&amp;count=25&quot;
+    r = requests.get(url)
+    soup = BeautifulSoup(r.content, &quot;html.parser&quot;)
+    return soup.find_all(&quot;table&quot;)[1].find(&quot;tbody&quot;)
+  
+def create_stock(row):
+    fields = [&quot;symbol&quot;, &quot;name&quot;, &quot;price&quot;, &quot;change&quot;, &quot;change_percent&quot;,
+              &quot;volume&quot;, &quot;three_month_avg_vol&quot;, &quot;market_cap&quot;, &quot;PE_ratio&quot;]
+    data = [x.text for x in row]
+    return {key: value for key, value in zip(fields, data)}
+  
+def scrape_tables(): 
+    table_range = [0, 100, 200, 300, 400, 446]
+    all_stocks = [] 
+    for offset in table_range: 
+        table = request_table(offset) 
+        for row in table: 
+            stock = create_stock(row)
+            all_stocks.append(stock)
+    return all_stocks
+  
+  
+all_stocks = scrape_tables() 
+print(len(all_stocks)) # verify 446 companies </code></pre>
+<pre><code>## 446</code></pre>
+<pre class="python"><code>df = pd.DataFrame(all_stocks) 
+df[&quot;date&quot;] = datetime.datetime.today().strftime(&#39;%Y-%m-%d&#39;)
+print(df[[&quot;symbol&quot;, &quot;name&quot;, &quot;price&quot;, &quot;change_percent&quot;, &quot;date&quot;]].head())</code></pre>
+<pre><code>##   symbol                   name     price change_percent        date
+## 0   MSFT  Microsoft Corporation    108.10         -1.40%  2018-10-23
+## 1  GOOGL          Alphabet Inc.  1,114.91         +0.32%  2018-10-23
+## 2   GOOG          Alphabet Inc.  1,103.69         +0.23%  2018-10-23
+## 3     FB         Facebook, Inc.    154.39         -0.25%  2018-10-23
+## 4      T              AT&amp;T Inc.     33.02         +1.07%  2018-10-23</code></pre>
+<hr />
+</div>
+<div id="finishing-up" class="section level3">
+<h3>Finishing Up</h3>
+</div>

@@ -6,28 +6,19 @@
     <description>Recent content on Data Forest</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 11 Oct 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 23 Oct 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Webscraping in Python - an Overview</title>
-      <link>/post/webscraping-in-python-an-overview/</link>
-      <pubDate>Thu, 11 Oct 2018 00:00:00 +0000</pubDate>
+      <title>Webscraping in Python - a Workflow</title>
+      <link>/post/webscraping-in-python-a-workflow/</link>
+      <pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/webscraping-in-python-an-overview/</guid>
-      <description>Webscraping in Python is not only incredibly satisfying to implement but also allows us to be creative in the way we want to approach any given site. Just as jazz improv requires understanding of scales and chord structure to be able to properly add to the progression, scraping data off the internet requires knowledge of the available options to be able to effectively scrap data.
-Simple Static HTML Sites  Requests  JavaScript Generated Sites  Does an API exist?</description>
-    </item>
-    
-    <item>
-      <title>NLP</title>
-      <link>/post/nlp/</link>
-      <pubDate>Fri, 12 Oct 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/post/nlp/</guid>
-      <description></description>
+      <guid>/post/webscraping-in-python-a-workflow/</guid>
+      <description>Scraping Stock Data Yahoo Finance
+ BeautifulSoup and Python from bs4 import BeautifulSoup import requests url = &amp;quot;https://finance.yahoo.com/screener/predefined/technology?offset=100&amp;amp;count=25&amp;quot; r = requests.get(url) soup = BeautifulSoup(r.content, &amp;quot;html.parser&amp;quot;) print(soup.title) ## &amp;lt;title&amp;gt;Stock Screener - Yahoo Finance&amp;lt;/title&amp;gt;  Find the Data Table table = soup.find_all(&amp;quot;table&amp;quot;)[1].find(&amp;quot;tbody&amp;quot;)  Scrape Table def create_stock(row): fields = [&amp;quot;symbol&amp;quot;, &amp;quot;name&amp;quot;, &amp;quot;price&amp;quot;, &amp;quot;change&amp;quot;, &amp;quot;change_percent&amp;quot;, &amp;quot;volume&amp;quot;, &amp;quot;three_month_avg_vol&amp;quot;, &amp;quot;market_cap&amp;quot;, &amp;quot;PE_ratio&amp;quot;] data = [x.text for x in row] return {key: value for key, value in zip(fields, data)} all_stocks = [] for row in table: stock = create_stock(row) all_stocks.</description>
     </item>
     
   </channel>
