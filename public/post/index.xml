@@ -17,8 +17,10 @@
       <pubDate>Tue, 23 Oct 2018 00:00:00 +0000</pubDate>
       
       <guid>/post/webscraping-in-python-a-workflow/</guid>
-      <description>Scraping Stock Data Yahoo Finance
- BeautifulSoup and Python from bs4 import BeautifulSoup import requests url = &amp;quot;https://finance.yahoo.com/screener/predefined/technology?offset=100&amp;amp;count=25&amp;quot; r = requests.get(url) soup = BeautifulSoup(r.content, &amp;quot;html.parser&amp;quot;) print(soup.title) ## &amp;lt;title&amp;gt;Stock Screener - Yahoo Finance&amp;lt;/title&amp;gt;  Find the Data Table table = soup.find_all(&amp;quot;table&amp;quot;)[1].find(&amp;quot;tbody&amp;quot;)  Scrape Table def create_stock(row): fields = [&amp;quot;symbol&amp;quot;, &amp;quot;name&amp;quot;, &amp;quot;price&amp;quot;, &amp;quot;change&amp;quot;, &amp;quot;change_percent&amp;quot;, &amp;quot;volume&amp;quot;, &amp;quot;three_month_avg_vol&amp;quot;, &amp;quot;market_cap&amp;quot;, &amp;quot;PE_ratio&amp;quot;] data = [x.text for x in row] return {key: value for key, value in zip(fields, data)} all_stocks = [] for row in table: stock = create_stock(row) all_stocks.</description>
+      <description>Scraping Stock Data  “Without big data, you are blind and deaf in the middle of a freeway”
+– Geoffrey Moore
+ The power of data science relies entirely on the quality and quantity of data we use for our models or analysis. Likewise, the internet has a wealth of untapped data available to us if we exercise a little creativity and patience to put together our own dataset.
+In this post, we will scrape Yahoo Finance to create a dataset of daily stock prices at top technology companies.</description>
     </item>
     
   </channel>

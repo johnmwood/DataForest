@@ -105,10 +105,27 @@
          <h1>Webscraping in Python - a Workflow</h1>
          <div id="scraping-stock-data" class="section level3">
 <h3>Scraping Stock Data</h3>
-<p><a href="https://finance.yahoo.com/sector/technology">Yahoo Finance</a></p>
+<blockquote>
+<p>“Without big data, you are blind and deaf in the middle of a freeway”<br />
+– Geoffrey Moore</p>
+</blockquote>
+<p>The power of data science relies entirely on the quality and quantity of data we use for our models or analysis. Likewise, the internet has a wealth of untapped data available to us if we exercise a little creativity and patience to put together our own dataset.</p>
+<p>In this post, we will scrape <a href="https://finance.yahoo.com/sector/technology">Yahoo Finance</a> to create a dataset of daily stock prices at top technology companies. (I will assume you have a basic understanding HTML and Python)</p>
+<div id="outcomes" class="section level5">
+<h5>Outcomes</h5>
+<ul>
+<li>think through webscraping problems using Python and BeautifulSoup<br />
+</li>
+<li>use iteration to extend functionality<br />
+</li>
+<li>understand available webscraping options for other problems on different sites</li>
+</ul>
+<hr />
+</div>
 </div>
 <div id="beautifulsoup-and-python" class="section level3">
 <h3>BeautifulSoup and Python</h3>
+<p>BeautifulSoup turns any HTML into a tree structure, allowing Python to simply grab tags by tag names and/or attributes attached to the tags. We will need a url to start scraping. We can start with:</p>
 <pre class="python"><code>from bs4 import BeautifulSoup
 import requests 
   
@@ -119,17 +136,35 @@ soup = BeautifulSoup(r.content, &quot;html.parser&quot;)
   
 print(soup.title)
 ## &lt;title&gt;Stock Screener - Yahoo Finance&lt;/title&gt;</code></pre>
+<p>Notice here that we simply request the page HTML through a GET request in Python and then BeautifulSoup parses that response into soup. It’s incredibly simple. We can also verify it works by printing the title tag. You can use dot notation to reference the first tag in the tree which matches the name.</p>
 </div>
 <div id="find-the-data-table" class="section level3">
 <h3>Find the Data Table</h3>
+<p>Thinking through web scraping problems requires a structural approach of thinking. What do we need to get to our data? We need the table holding the data. Simple. Let’s see how the page is actually structured:</p>
+<ol style="list-style-type: decimal">
+<li>Hit <code>command + option + i</code> (or <code>crtl + shift + i</code> on windows) to open a web inspector. It is also easy to right click on the table and click <code>inspect</code>.</li>
+<li>Click on the button in the top left-hand corner of the inspector to allow hovering</li>
+<li>Now, hover your cursor over elements until you find a larger element which covers the table you want</li>
+<li>Look for unique attributes we can target using BeautifulSoup</li>
+</ol>
+<p><img src="post/img/scraping.jpg" style="display: block; margin: auto;" /></p>
+<p>Going down the tree, we find the table tag looks like <code>&lt;table class=&quot;W(100%)&quot; data-reactid=&quot;73&quot;&gt;</code>. There are multiple approaches we can take, all of which require a little trial and error. As a general rule of thumb, <strong>tags are much easier to target if they have a unique id.</strong> <code>data-reactid</code> turns out to not be very useful so I figured out another implementation.</p>
 <pre class="python"><code>table = soup.find_all(&quot;table&quot;)[1].find(&quot;tbody&quot;)</code></pre>
+<ul>
+<li><code>find_all</code> creates a list of all tags which match the search condition<br />
+</li>
+<li>we select the second table because the first is not the stocks data<br />
+</li>
+<li>We can then chain <code>find()</code> to find the table body element nested inside of the table</li>
+</ul>
 </div>
 <div id="scrape-table" class="section level3">
 <h3>Scrape Table</h3>
+<p>Depending on the web page, the most difficult part of web scraping is just finding the elements you need for your data. The rest of putting together this dataset requires some simple iteration in Python.</p>
 <pre class="python"><code>def create_stock(row):
     fields = [&quot;symbol&quot;, &quot;name&quot;, &quot;price&quot;, &quot;change&quot;, &quot;change_percent&quot;,
               &quot;volume&quot;, &quot;three_month_avg_vol&quot;, &quot;market_cap&quot;, &quot;PE_ratio&quot;]
-    data = [x.text for x in row]
+    data = [x.text for x in row] # get innerHTML nested within each row item
     return {key: value for key, value in zip(fields, data)}
       
 all_stocks = [] 
@@ -140,11 +175,18 @@ for row in table:
 print(len(all_stocks))
 ## 100
 print(all_stocks[0]) # verify data 
-## {&#39;symbol&#39;: &#39;STX&#39;, &#39;name&#39;: &#39;Seagate Technology plc&#39;, &#39;price&#39;: &#39;43.47&#39;, &#39;change&#39;: &#39;-0.13&#39;, &#39;change_percent&#39;: &#39;-0.30%&#39;, &#39;volume&#39;: &#39;5.956M&#39;, &#39;three_month_avg_vol&#39;: &#39;3.788M&#39;, &#39;market_cap&#39;: &#39;12.515B&#39;, &#39;PE_ratio&#39;: &#39;10.73&#39;}</code></pre>
-<hr />
+## {&#39;symbol&#39;: &#39;STM&#39;, &#39;name&#39;: &#39;STMicroelectronics N.V.&#39;, &#39;price&#39;: &#39;13.69&#39;, &#39;change&#39;: &#39;-2.19&#39;, &#39;change_percent&#39;: &#39;-13.79%&#39;, &#39;volume&#39;: &#39;13.444M&#39;, &#39;three_month_avg_vol&#39;: &#39;4.153M&#39;, &#39;market_cap&#39;: &#39;12.06B&#39;, &#39;PE_ratio&#39;: &#39;26.69&#39;}</code></pre>
+<p>By calling <code>tag_element.text</code>, BeautifulSoup will find the nested text data we want, even if that innerHTML is nested in further tags. Looping over elements is very intuitive. <code>for row in table:</code> loops over every child element nested in the table we created earlier.</p>
 </div>
 <div id="putting-it-all-together" class="section level3">
 <h3>Putting it All Together</h3>
+<p>Looking through the Yahoo stocks page there are 443 total companies listed, however, we only retrived 100. Looking closer, we can see that there is a an offset variable in the url. A url is constructed as: <code>https://domain.com/path/to/page?variable=value&amp;another_variable=value...</code>. The number of rows is specified in the url so we can just loop through all of the necessary offsets to get all the data and finish scraping.</p>
+<p>Here is a modified script which allows us to iterate through all of the data:</p>
+<ul>
+<li>I use an <a href="https://realpython.com/python-f-strings/">f-string</a> to add in the offset. The f-string is really nice syntactic sugar added in Python 3.6</li>
+<li>Turning the list of dictionaries into a pandas dataframe is really easy and allows me to add a date column in one go</li>
+<li>The dataframe has the added benefit of the function <code>pd.DataFrame.to_csv()</code> so we can store our newly scraped data in a CSV file for future use</li>
+</ul>
 <pre class="python"><code>from bs4 import BeautifulSoup  
 import pandas as pd  
 import datetime  
@@ -176,21 +218,31 @@ def scrape_tables():
   
   
 all_stocks = scrape_tables() 
-print(len(all_stocks)) # verify 446 companies </code></pre>
-<pre><code>## 446</code></pre>
+print(len(all_stocks)) # verify 443 companies </code></pre>
+<pre><code>## 443</code></pre>
 <pre class="python"><code>df = pd.DataFrame(all_stocks) 
 df[&quot;date&quot;] = datetime.datetime.today().strftime(&#39;%Y-%m-%d&#39;)
-print(df[[&quot;symbol&quot;, &quot;name&quot;, &quot;price&quot;, &quot;change_percent&quot;, &quot;date&quot;]].head())</code></pre>
-<pre><code>##   symbol                   name     price change_percent        date
-## 0   MSFT  Microsoft Corporation    108.10         -1.40%  2018-10-23
-## 1  GOOGL          Alphabet Inc.  1,114.91         +0.32%  2018-10-23
-## 2   GOOG          Alphabet Inc.  1,103.69         +0.23%  2018-10-23
-## 3     FB         Facebook, Inc.    154.39         -0.25%  2018-10-23
-## 4      T              AT&amp;T Inc.     33.02         +1.07%  2018-10-23</code></pre>
+print(df[[&quot;symbol&quot;, &quot;name&quot;, &quot;price&quot;, &quot;date&quot;]].head())</code></pre>
+<pre><code>##   symbol                         name     price        date
+## 0   MSFT        Microsoft Corporation    102.32  2018-10-24
+## 1   GOOG                Alphabet Inc.  1,050.71  2018-10-24
+## 2  GOOGL                Alphabet Inc.  1,057.12  2018-10-24
+## 3     FB               Facebook, Inc.    146.04  2018-10-24
+## 4     VZ  Verizon Communications Inc.     57.42  2018-10-24</code></pre>
 <hr />
 </div>
-<div id="finishing-up" class="section level3">
-<h3>Finishing Up</h3>
+<div id="conclusion" class="section level3">
+<h3>Conclusion</h3>
+<p><strong>Keep in mind:</strong></p>
+<ul>
+<li>Obviously, this data is only from the current date. It would be easy to run this script on a scheduled server to append the results to a CSV or write to a database. This is merely one use-case.<br />
+</li>
+<li>BeautifulSoup is best suited for static HTML sites such as this one. Something like <a href="https://selenium-python.readthedocs.io">Selenium Webscraper</a> allows Python to mimic clicking and moving through webpages and would be better for more complicated JavaScript generated web apps. It is worth noting Selenium has a fair amount of overhead compared with BeauitfulSoup and will require a different approach to scraping.<br />
+</li>
+<li><a href="https://scrapy.org">Scrapy</a> is also a popular Python library for crawling sites and scraping data. I believe it would be a much more scalable option compared with something like this simple script.</li>
+<li>Before taking the time to write webscrapers, remember that an API is always going to be better if you can get the data straight from the source. If a reliable dataset exists, you should absolutely use it and save yourself the time. Webscraping is a great tool for putting together your own datasets, but should never be a first option while you look for useful data.</li>
+</ul>
+<p>Always feel free to reach out with questions or feedback.</p>
 </div>
 
          
