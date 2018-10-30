@@ -19,7 +19,7 @@ knitr::knit_engines$set(python = eng_python)
 
 knitr::opts_chunk$set(
   echo = TRUE, 
-  fig.align = "center", 
+  fig.align = "center",
   collapse = TRUE
   # cache = TRUE
 )
@@ -66,10 +66,6 @@ Thinking through web scraping problems requires a structural approach of thinkin
 2. Click on the button in the top left-hand corner of the inspector to allow hovering 
 3. Now, hover your cursor over elements until you find a larger element which covers the table you want 
 4. Look for unique attributes we can target using BeautifulSoup 
-
-```{r eval=TRUE, echo=FALSE}
-knitr::include_graphics("post/img/scraping.jpg")
-```
 
 ```{python eval=TRUE, include=FALSE}
 from bs4 import BeautifulSoup # rerun because of above R chunk 

@@ -147,7 +147,6 @@ print(soup.title)
 <li>Now, hover your cursor over elements until you find a larger element which covers the table you want</li>
 <li>Look for unique attributes we can target using BeautifulSoup</li>
 </ol>
-<p><img src="post/img/scraping.jpg" style="display: block; margin: auto;" /></p>
 <p>Going down the tree, we find the table tag looks like <code>&lt;table class=&quot;W(100%)&quot; data-reactid=&quot;73&quot;&gt;</code>. There are multiple approaches we can take, all of which require a little trial and error. As a general rule of thumb, <strong>tags are much easier to target if they have a unique id.</strong> <code>data-reactid</code> turns out to not be very useful so I figured out another implementation.</p>
 <pre class="python"><code>table = soup.find_all(&quot;table&quot;)[1].find(&quot;tbody&quot;)</code></pre>
 <ul>
@@ -175,7 +174,7 @@ for row in table:
 print(len(all_stocks))
 ## 100
 print(all_stocks[0]) # verify data 
-## {&#39;symbol&#39;: &#39;STM&#39;, &#39;name&#39;: &#39;STMicroelectronics N.V.&#39;, &#39;price&#39;: &#39;13.69&#39;, &#39;change&#39;: &#39;-2.19&#39;, &#39;change_percent&#39;: &#39;-13.79%&#39;, &#39;volume&#39;: &#39;13.444M&#39;, &#39;three_month_avg_vol&#39;: &#39;4.153M&#39;, &#39;market_cap&#39;: &#39;12.06B&#39;, &#39;PE_ratio&#39;: &#39;26.69&#39;}</code></pre>
+## {&#39;symbol&#39;: &#39;CDW&#39;, &#39;name&#39;: &#39;CDW Corporation&#39;, &#39;price&#39;: &#39;78.66&#39;, &#39;change&#39;: &#39;-1.01&#39;, &#39;change_percent&#39;: &#39;-1.27%&#39;, &#39;volume&#39;: &#39;766,933&#39;, &#39;three_month_avg_vol&#39;: &#39;812,004&#39;, &#39;market_cap&#39;: &#39;11.906B&#39;, &#39;PE_ratio&#39;: &#39;19.54&#39;}</code></pre>
 <p>By calling <code>tag_element.text</code>, BeautifulSoup will find the nested text data we want, even if that innerHTML is nested in further tags. Looping over elements is very intuitive. <code>for row in table:</code> loops over every child element nested in the table we created earlier.</p>
 </div>
 <div id="putting-it-all-together" class="section level3">
@@ -219,16 +218,16 @@ def scrape_tables():
   
 all_stocks = scrape_tables() 
 print(len(all_stocks)) # verify 443 companies </code></pre>
-<pre><code>## 443</code></pre>
+<pre><code>## 444</code></pre>
 <pre class="python"><code>df = pd.DataFrame(all_stocks) 
 df[&quot;date&quot;] = datetime.datetime.today().strftime(&#39;%Y-%m-%d&#39;)
 print(df[[&quot;symbol&quot;, &quot;name&quot;, &quot;price&quot;, &quot;date&quot;]].head())</code></pre>
 <pre><code>##   symbol                         name     price        date
-## 0   MSFT        Microsoft Corporation    102.32  2018-10-24
-## 1   GOOG                Alphabet Inc.  1,050.71  2018-10-24
-## 2  GOOGL                Alphabet Inc.  1,057.12  2018-10-24
-## 3     FB               Facebook, Inc.    146.04  2018-10-24
-## 4     VZ  Verizon Communications Inc.     57.42  2018-10-24</code></pre>
+## 0   MSFT        Microsoft Corporation    103.85  2018-10-29
+## 1  GOOGL                Alphabet Inc.  1,034.73  2018-10-29
+## 2   GOOG                Alphabet Inc.  1,020.08  2018-10-29
+## 3     FB               Facebook, Inc.    142.09  2018-10-29
+## 4     VZ  Verizon Communications Inc.     56.48  2018-10-29</code></pre>
 <hr />
 </div>
 <div id="conclusion" class="section level3">
